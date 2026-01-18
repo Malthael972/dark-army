@@ -1,8 +1,7 @@
-displayName: "Dark Army"
 name: "dark-army"
-author: "malthael972"
+displayName: "Dark Army"
+author: "Malthael972"
 main: "darkarmy.mod.DarkArmy"
 description: "Dark Army testing."
 version: 1.0
-minGameVersion: 154.3
-java: true
+minGameVersion: 154
