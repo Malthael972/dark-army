@@ -10,7 +10,7 @@ public class DarkUnits {
 
   public static void load() {
 
-    darkStell = new TankUnitType("darkStell"){{
+    darkStell = new TankUnitType("dark-stell"){{
             hitSize = 12f;
             treadPullOffset = 3;
             speed = 0.75f;
@@ -25,7 +25,7 @@ public class DarkUnits {
             tankMoveVolume *= 0.32f;
             tankMoveSound = Sounds.tankMoveSmall;
 
-            weapons.add(new Weapon("darkStell-weapon"){{
+            weapons.add(new Weapon("dark-stell-weapon"){{
                 shootSound = Sounds.shootStell;
                 layerOffset = 0.0001f;
                 reload = 50f;
