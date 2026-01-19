@@ -11,7 +11,7 @@ public class DarkUnits {
   public static void load() {
 
     darkStell = new TankUnitType("dark-stell"){{
-        contructor = UnitEntity::create;
+        constructor = UnitEntity::create;
       
             hitSize = 12f;
             treadPullOffset = 3;
