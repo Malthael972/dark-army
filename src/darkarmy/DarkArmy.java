@@ -1,6 +1,7 @@
 package darkarmy;
 
 import mindustry.mod.Mod;
+import darkarmy.content.DarkArmyUnits;
 
 public class DarkArmy extends Mod {
   @Override
