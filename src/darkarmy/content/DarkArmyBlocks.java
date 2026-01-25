@@ -72,7 +72,7 @@ public static void load(){
             requirements(Category.units, with(Items.silicon, 200, Items.beryllium, 250, Items.tungsten, 10));
             size = 3;
             configurable = false;
-            plans.add(new   DarkArmyUnits.darkMerui, 60f * 40f, with(Items.beryllium, 50, Items.silicon, 70)));
+            plans.add(new UnitPlan(DarkArmyUnits.darkMerui, 60f * 40f, with(Items.beryllium, 50, Items.silicon, 70)));
             regionSuffix = "-dark";
             fogRadius = 3;
             researchCostMultiplier = 0.65f;
