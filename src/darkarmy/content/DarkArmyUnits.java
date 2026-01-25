@@ -40,6 +40,11 @@ public class DarkArmyUnits {
   public static UnitType darkAnthicus;
   public static UnitType darkTecta;
   public static UnitType darkCollaris;
+  public static 
+  public static
+  public static
+  public static
+  public static
 
   public static void load(){
     // tank units
@@ -1166,7 +1171,7 @@ public class DarkArmyUnits {
 
     // ship units
 
-  elude = new ErekirUnitType("elude"){{
+  darkElude = new ErekirUnitType("dark-elude"){{
             hovering = true;
             canDrown = false;
             shadowElevation = 0.1f;
@@ -1206,7 +1211,7 @@ public class DarkArmyUnits {
                 }});
             }
 
-            weapons.add(new Weapon("elude-weapon"){{
+            weapons.add(new Weapon("dark-elude-weapon"){{
                 shootSound = Sounds.shootElude;
                 y = -2f;
                 x = 4f;
@@ -1235,7 +1240,7 @@ public class DarkArmyUnits {
             }});
         }};
 
-        avert = new ErekirUnitType("avert"){{
+        darkAvert = new ErekirUnitType("dark-avert"){{
             lowAltitude = false;
             flying = true;
             drag = 0.08f;
@@ -1254,7 +1259,7 @@ public class DarkArmyUnits {
             new UnitEngine(39 / 4f, -16 / 4f, 3f, 315f)
             );
 
-            weapons.add(new Weapon("avert-weapon"){{
+            weapons.add(new Weapon("dark-avert-weapon"){{
                 shootSound = Sounds.shootAvert;
                 reload = 35f;
                 x = 0f;
@@ -1282,7 +1287,7 @@ public class DarkArmyUnits {
             }});
         }};
 
-        obviate = new ErekirUnitType("obviate"){{
+        darkObviate = new ErekirUnitType("dark-obviate"){{
             flying = true;
             drag = 0.08f;
             speed = 1.8f;
@@ -1403,7 +1408,7 @@ public class DarkArmyUnits {
             }});
         }};
 
-        quell = new ErekirUnitType("quell"){{
+        darkQuell = new ErekirUnitType("dark-quell"){{
             aiController = FlyingFollowAI::new;
             envDisabled = 0;
 
@@ -1433,7 +1438,7 @@ public class DarkArmyUnits {
                 y = 1f;
             }});
 
-            weapons.add(new Weapon("quell-weapon"){{
+            weapons.add(new Weapon("dark-quell-weapon"){{
                 shootSound = Sounds.shootMissileSmall;
                 x = 51 / 4f;
                 y = 5 / 4f;
@@ -1507,7 +1512,7 @@ public class DarkArmyUnits {
             );
         }};
 
-        disrupt = new ErekirUnitType("disrupt"){{
+        darkDisrupt = new ErekirUnitType("dark-disrupt"){{
             aiController = FlyingFollowAI::new;
             envDisabled = 0;
 
@@ -1552,7 +1557,7 @@ public class DarkArmyUnits {
                 }});
             }
 
-            weapons.add(new Weapon("disrupt-weapon"){{
+            weapons.add(new Weapon("dark-disrupt-weapon"){{
                 shootSound = Sounds.shootMissileLarge;
                 shootSoundVolume = 0.6f;
                 x = 78f / 4f;
