@@ -28,10 +28,10 @@ import mindustry.world.blocks.storage.*;
 import mindustry.world.blocks.units.*;
 
 public class DarkArmyBlocks {
-  public static block darkTankFabricator
+  public static block darkTankFabricator;
 
   public static void load(){
-
+// tank production
     darkTankFabricator = new UnitFactory("dark-tank-fabricator"){{
             requirements(Category.units, with(Items.silicon, 200, Items.beryllium, 150));
             size = 3;
