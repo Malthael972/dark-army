@@ -31,8 +31,13 @@ import static mindustry.type.ItemStack.with;
 public class DarkArmyBlocks {
   public static Block darkTankFabricator;
   public static Block darkTankRefabricator;
+  public static Block darkMechFabricator;
+  public static Block darkMechRefabricator;
+  public static Block darkshipFabricator;
+  public static Block darkshipRefabricator;
   public static Block darkPrimeRefabricator;
-  public static void load(){
+  
+public static void load(){
 // tank production
     darkTankFabricator = new UnitFactory("dark-tank-fabricator"){{
             requirements(Category.units, with(Items.silicon, 200, Items.beryllium, 150));
@@ -62,9 +67,65 @@ public class DarkArmyBlocks {
             );
         }};
 
-    //mech production
+    //mech production        
+            darkMechFabricator = new UnitFactory("dark-mech-fabricator"){{
+            requirements(Category.units, with(Items.silicon, 200, Items.beryllium, 250, Items.tungsten, 10));
+            size = 3;
+            configurable = false;
+            plans.add(new   DarkArmyUnits.darkMerui, 60f * 40f, with(Items.beryllium, 50, Items.silicon, 70)));
+            regionSuffix = "-dark";
+            fogRadius = 3;
+            researchCostMultiplier = 0.65f;
+            consumePower(1.5f);
+        }};
+    
+            darkMechRefabricator = new Reconstructor("dark-mech-refabricator"){{
+            requirements(Category.units, with(Items.beryllium, 250, Items.tungsten, 175, Items.silicon, 150));
+            regionSuffix = "-dark";
+
+            size = 3;
+            consumePower(2.5f);
+            consumeLiquid(Liquids.hydrogen, 3f / 60f);
+            consumeItems(with(Items.silicon, 50, Items.tungsten, 40));
+
+            constructTime = 60f * 45f;
+            researchCostMultiplier = 0.75f;
+
+            upgrades.addAll(
+            new UnitType[]{DarkArmyUnits.darkmerui, DarkArmyUnits.darkCleroi}
+            );
+        }};
 
     //Ship production
+    darkShipFabricator = new UnitFactory("dark-ship-fabricator"){{
+            requirements(Category.units, with(Items.silicon, 250, Items.beryllium, 200));
+
+            size = 3;
+            configurable = false;
+            plans.add(new UnitPlan(DarkArmyUnits.darkElude, 60f * 40f, with(Items.graphite, 50, Items.silicon, 70)));
+            regionSuffix = "-dark";
+            fogRadius = 3;
+            researchCostMultiplier = 0.5f;
+            consumePower(1.5f);
+        }};
+
+    darkShipRefabricator = new Reconstructor("dark-ship-refabricator"){{
+            requirements(Category.units, with(Items.beryllium, 250, Items.tungsten, 120, Items.silicon, 150, Items.oxide, 15));
+            regionSuffix = "-dark";
+
+            size = 3;
+            consumePower(2.5f);
+            consumeLiquid(Liquids.hydrogen, 3f / 60f);
+            consumeItems(with(Items.silicon, 60, Items.tungsten, 40));
+
+            constructTime = 60f * 50f;
+
+            upgrades.addAll(
+            new UnitType[]{DarkArmyUnits.darkElude, DarkArmyUnits.darkAvert}
+            );
+
+            researchCost = with(Items.beryllium, 500, Items.tungsten, 200, Items.silicon, 300, Items.oxide, 80);
+        }};
    
     //prime fabricator
 
