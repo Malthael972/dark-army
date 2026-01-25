@@ -27,4 +27,9 @@ import mindustry.world.blocks.sandbox.*;
 import mindustry.world.blocks.storage.*;
 import mindustry.world.blocks.units.*;
 
-public class 
+public class DarkArmyBlocks {
+
+  public static void load(){
+    
+  }
+}
