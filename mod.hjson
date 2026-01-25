@@ -4,4 +4,4 @@ author: "Malthael972"
 main: "darkarmy.DarkArmy"
 description: "Dark Army testing."
 version: 1.0
-minGameVersion: 154.3
+minGameVersion: 154
