@@ -1,5 +1,6 @@
 package darkarmy.content;
 
+// ================= Arc core & utilities =================
 import arc.Core;
 import arc.func.Cons;
 import arc.graphics.Color;
@@ -18,40 +19,48 @@ import arc.struct.ObjectSet;
 import arc.struct.Seq;
 import arc.util.Time;
 import arc.util.Tmp;
+
+// ================= Mindustry core =================
 import mindustry.Vars;
+import mindustry.game.Team;
+import mindustry.content.Fx;
+import mindustry.content.Items;
+import mindustry.content.StatusEffects;
+import mindustry.world.meta.BlockFlag;
+import mindustry.world.meta.Env;
+
+// ================= Mindustry AI =================
 import mindustry.ai.UnitCommand;
 import mindustry.ai.types.BuilderAI;
 import mindustry.ai.types.FlyingAI;
 import mindustry.ai.types.MinerAI;
-import mindustry.audio.SoundLoop;
-import mindustry.content.Fx;
-import mindustry.content.Items;
-import mindustry.content.StatusEffects;
+
+// ================= Mindustry entities =================
 import mindustry.entities.*;
 import mindustry.entities.abilities.*;
 import mindustry.entities.bullet.*;
-import mindustry.entities.effect.MultiEffect;
-import mindustry.entities.part.HaloPart;
-import mindustry.entities.part.RegionPart;
-import mindustry.entities.part.ShapePart;
+import mindustry.entities.effect.*;
+import mindustry.entities.part.*;
 import mindustry.entities.pattern.*;
 import mindustry.entities.units.WeaponMount;
-import mindustry.game.Team;
-import mindustry.gen.*;
-import mindustry.gen.UnitEntity;
+
+// ================= Mindustry graphics =================
 import mindustry.graphics.Drawf;
 import mindustry.graphics.Layer;
 import mindustry.graphics.MultiPacker;
 import mindustry.graphics.Pal;
-import mindustry.type.StatusEffect;
+
+// ================= Mindustry units & weapons =================
+import mindustry.gen.*;
+import mindustry.gen.UnitEntity;
 import mindustry.type.UnitType;
+import mindustry.type.StatusEffect;
 import mindustry.type.Weapon;
 import mindustry.type.ammo.ItemAmmoType;
 import mindustry.type.ammo.PowerAmmoType;
 import mindustry.type.weapons.PointDefenseWeapon;
 import mindustry.type.weapons.RepairBeamWeapon;
-import mindustry.world.meta.BlockFlag;
-import mindustry.world.meta.Env;
+import mindustry.type.unit.*; // includes TankUnitType, GroundUnitType, etc.
 
 public class DarkArmyUnits {
   public static UnitType darkStell;
