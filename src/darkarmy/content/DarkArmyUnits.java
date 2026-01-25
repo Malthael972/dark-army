@@ -35,6 +35,11 @@ public class DarkArmyUnits {
   public static UnitType darkPrecept;
   public static UnitType darkVanquish;
   public static UnitType darkConquer;
+  public static UnitType darkMerui;
+  public static UnitType darkCleroi;
+  public static UnitType darkAnthicus;
+  public static UnitType darkTecta;
+  public static UnitType darkCollaris;
 
   public static void load(){
     // tank units
@@ -520,5 +525,644 @@ public class DarkArmyUnits {
                 outline = false;
             }});
         }};
+
+    // mech units
+    
+     darkMerui = new ErekirUnitType("dark-merui"){{
+            speed = 0.72f;
+            drag = 0.11f;
+            hitSize = 9f;
+            rotateSpeed = 3f;
+            health = 680;
+            armor = 4f;
+            legStraightness = 0.3f;
+            stepShake = 0f;
+            stepSound = Sounds.walkerStepTiny;
+            stepSoundVolume = 0.4f;
+
+            legCount = 6;
+            legLength = 8f;
+            lockLegBase = true;
+            legContinuousMove = true;
+            legExtension = -2f;
+            legBaseOffset = 3f;
+            legMaxLength = 1.1f;
+            legMinLength = 0.2f;
+            legLengthScl = 0.96f;
+            legForwardScl = 1.1f;
+            legGroupSize = 3;
+            rippleScale = 0.2f;
+
+            legMoveSpace = 1f;
+            allowLegStep = true;
+            hovering = true;
+            legPhysicsLayer = false;
+
+            shadowElevation = 0.1f;
+            groundLayer = Layer.legUnit - 1f;
+            targetAir = false;
+            researchCostMultiplier = 0f;
+
+            weapons.add(new Weapon("dark-merui-weapon"){{
+                shootSound = Sounds.shootMerui;
+                mirror = false;
+                showStatSprite = false;
+                x = 0f;
+                y = 1f;
+                shootY = 4f;
+                reload = 63f;
+                cooldownTime = 42f;
+                heatColor = Pal.turretHeat;
+
+                bullet = new ArtilleryBulletType(3f, 40){{
+                    shootEffect = new MultiEffect(Fx.shootSmallColor, new Effect(9, e -> {
+                        color(Color.white, e.color, e.fin());
+                        stroke(0.7f + e.fout());
+                        Lines.square(e.x, e.y, e.fin() * 5f, e.rotation + 45f);
+
+                        Drawf.light(e.x, e.y, 23f, e.color, e.fout() * 0.7f);
+                    }));
+
+                    collidesTiles = true;
+                    backColor = hitColor = Pal.techBlue;
+                    frontColor = Color.white;
+
+                    knockback = 0.8f;
+                    lifetime = 46f;
+                    width = height = 9f;
+                    splashDamageRadius = 19f;
+                    splashDamage = 30f;
+
+                    trailLength = 27;
+                    trailWidth = 2.5f;
+                    trailEffect = Fx.none;
+                    trailColor = backColor;
+
+                    trailInterp = Interp.slope;
+
+                    shrinkX = 0.6f;
+                    shrinkY = 0.2f;
+
+                    hitEffect = despawnEffect = new MultiEffect(Fx.hitSquaresColor, new WaveEffect(){{
+                        colorFrom = colorTo = Pal.techBlue;
+                        sizeTo = splashDamageRadius + 2f;
+                        lifetime = 9f;
+                        strokeFrom = 2f;
+                    }});
+                }};
+            }});
+
+        }};
+
+        darkCleroi = new ErekirUnitType("dark-cleroi"){{
+            speed = 0.6f;
+            drag = 0.1f;
+            hitSize = 14f;
+            rotateSpeed = 3f;
+            health = 1100;
+            armor = 5f;
+            stepShake = 0f;
+
+            stepSound = Sounds.walkerStepSmall;
+
+            legCount = 4;
+            legLength = 14f;
+            lockLegBase = true;
+            legContinuousMove = true;
+            legExtension = -3f;
+            legBaseOffset = 5f;
+            legMaxLength = 1.1f;
+            legMinLength = 0.2f;
+            legLengthScl = 0.95f;
+            legForwardScl = 0.7f;
+
+            legMoveSpace = 1f;
+            hovering = true;
+
+            shadowElevation = 0.2f;
+            groundLayer = Layer.legUnit - 1f;
+
+            for(int i = 0; i < 5; i++){
+                int fi = i;
+                parts.add(new RegionPart("-spine"){{
+                    y = 21f / 4f - 45f / 4f * fi / 4f;
+                    moveX = 21f / 4f + Mathf.slope(fi / 4f) * 1.25f;
+                    moveRot = 10f - fi * 14f;
+                    float fin = fi  / 4f;
+                    progress = PartProgress.reload.inv().mul(1.3f).add(0.1f).sustain(fin * 0.34f, 0.14f, 0.14f);
+                    layerOffset = -0.001f;
+                    mirror = true;
+                }});
+            }
+
+            weapons.add(new Weapon("dark-cleroi-weapon"){{
+                shootSound = Sounds.shootCleroi;
+                x = 14f / 4f;
+                y = 33f / 4f;
+                reload = 33f;
+                layerOffset = -0.002f;
+                alternate = false;
+                heatColor = Color.red;
+                cooldownTime = 25f;
+                smoothReloadSpeed = 0.15f;
+                recoil = 2f;
+
+                bullet = new BasicBulletType(3.5f, 30){{
+                    backColor = trailColor = hitColor = Pal.techBlue;
+                    frontColor = Color.white;
+                    width = 7.5f;
+                    height = 10f;
+                    lifetime = 40f;
+                    trailWidth = 2f;
+                    trailLength = 4;
+                    shake = 1f;
+
+                    trailEffect = Fx.missileTrail;
+                    trailParam = 1.8f;
+                    trailInterval = 6f;
+
+                    splashDamageRadius = 30f;
+                    splashDamage = 43f;
+
+                    despawnSound = Sounds.explosionCleroi;
+
+                    hitEffect = despawnEffect = new MultiEffect(Fx.hitBulletColor, new WaveEffect(){{
+                        colorFrom = colorTo = Pal.techBlue;
+                        sizeTo = splashDamageRadius + 3f;
+                        lifetime = 9f;
+                        strokeFrom = 3f;
+                    }});
+
+                    shootEffect = new MultiEffect(Fx.shootBigColor, new Effect(9, e -> {
+                        color(Color.white, e.color, e.fin());
+                        stroke(0.7f + e.fout());
+                        Lines.square(e.x, e.y, e.fin() * 5f, e.rotation + 45f);
+
+                        Drawf.light(e.x, e.y, 23f, e.color, e.fout() * 0.7f);
+                    }));
+                    smokeEffect = Fx.shootSmokeSquare;
+                    ammoMultiplier = 2;
+                }};
+            }});
+
+            weapons.add(new PointDefenseWeapon("dark-cleroi-point-defense"){{
+                x = 16f / 4f;
+                y = -20f / 4f;
+                reload = 9f;
+
+                targetInterval = 9f;
+                targetSwitchInterval = 12f;
+                recoil = 0.5f;
+
+                bullet = new BulletType(){{
+                    shootSound = Sounds.shootLaser;
+                    shootEffect = Fx.sparkShoot;
+                    hitEffect = Fx.pointHit;
+                    maxRange = 100f;
+                    damage = 38f;
+                }};
+            }});
+        }};
+
+        darkAnthicus = new ErekirUnitType("dark-anthicus"){{
+            speed = 0.65f;
+            drag = 0.1f;
+            hitSize = 21f;
+            rotateSpeed = 3f;
+            health = 2900;
+            armor = 7f;
+            fogRadius = 40f;
+            stepShake = 0f;
+
+            stepSound = Sounds.walkerStepSmall;
+            stepSoundPitch = 0.78f;
+
+            legCount = 6;
+            legLength = 18f;
+            legGroupSize = 3;
+            lockLegBase = true;
+            legContinuousMove = true;
+            legExtension = -3f;
+            legBaseOffset = 7f;
+            legMaxLength = 1.1f;
+            legMinLength = 0.2f;
+            legLengthScl = 0.95f;
+            legForwardScl = 0.9f;
+
+            legMoveSpace = 1f;
+            hovering = true;
+
+            shadowElevation = 0.2f;
+            groundLayer = Layer.legUnit - 1f;
+
+            for(int j = 0; j < 3; j++){
+                int i = j;
+                parts.add(new RegionPart("-blade"){{
+                    layerOffset = -0.01f;
+                    heatLayerOffset = 0.005f;
+                    x = 2f;
+                    moveX = 6f + i * 1.9f;
+                    moveY = 8f + -4f * i;
+                    moveRot = 40f - i * 25f;
+                    mirror = true;
+                    progress = PartProgress.warmup.delay(i * 0.2f);
+                    heatProgress = p -> Mathf.absin(Time.time + i * 14f, 7f, 1f);
+
+                    heatColor = Pal.techBlue;
+                }});
+            }
+
+            weapons.add(new Weapon("dark-anthicus-weapon"){{
+                shootSound = Sounds.shootMissileLarge;
+                shootSoundVolume = 0.5f;
+                x = 29f / 4f;
+                y = -11f / 4f;
+                shootY = 1.5f;
+                showStatSprite = false;
+                reload = 130f;
+                layerOffset = 0.01f;
+                heatColor = Color.red;
+                cooldownTime = 60f;
+                smoothReloadSpeed = 0.15f;
+                shootWarmupSpeed = 0.05f;
+                minWarmup = 0.9f;
+                rotationLimit = 70f;
+                rotateSpeed = 2f;
+                inaccuracy = 20f;
+                shootStatus = StatusEffects.slow;
+                alwaysShootWhenMoving = true;
+
+                rotate = true;
+
+                shoot = new ShootPattern(){{
+                    shots = 2;
+                    shotDelay = 6f;
+                }};
+
+                parts.add(new RegionPart("-blade"){{
+                    mirror = true;
+                    moveRot = -25f;
+                    under = true;
+                    moves.add(new PartMove(PartProgress.reload, 1f, 0f, 0f));
+
+                    heatColor = Color.red;
+                    cooldownTime = 60f;
+                }});
+
+                parts.add(new RegionPart("-blade"){{
+                    mirror = true;
+                    moveRot = -50f;
+                    moveY = -2f;
+                    moves.add(new PartMove(PartProgress.reload.shorten(0.5f), 1f, 0f, -15f));
+                    under = true;
+
+                    heatColor = Color.red;
+                    cooldownTime = 60f;
+                }});
+
+                bullet = new BulletType(){{
+                    shootEffect = new MultiEffect(Fx.shootBigColor, new Effect(9, e -> {
+                        color(Color.white, e.color, e.fin());
+                        stroke(0.7f + e.fout());
+                        Lines.square(e.x, e.y, e.fin() * 5f, e.rotation + 45f);
+
+                        Drawf.light(e.x, e.y, 23f, e.color, e.fout() * 0.7f);
+                    }), new WaveEffect(){{
+                        colorFrom = colorTo = Pal.techBlue;
+                        sizeTo = 15f;
+                        lifetime = 12f;
+                        strokeFrom = 3f;
+                    }});
+
+                    smokeEffect = Fx.shootBigSmoke2;
+                    shake = 2f;
+                    speed = 0f;
+                    keepVelocity = false;
+                    inaccuracy = 2f;
+
+                    spawnUnit = new MissileUnitType("anthicus-missile"){{
+                        trailColor = engineColor = Pal.techBlue;
+                        engineSize = 1.75f;
+                        engineLayer = Layer.effect;
+                        speed = 3.7f;
+                        maxRange = 6f;
+                        lifetime = 60f * 1.5f;
+                        outlineColor = Pal.darkOutline;
+                        health = 55;
+                        lowAltitude = true;
+
+                        parts.add(new FlarePart(){{
+                            progress = PartProgress.life.slope().curve(Interp.pow2In);
+                            radius = 0f;
+                            radiusTo = 35f;
+                            stroke = 3f;
+                            rotation = 45f;
+                            y = -5f;
+                            followRotation = true;
+                        }});
+
+                        weapons.add(new Weapon(){{
+                            shootSound = Sounds.none;
+                            shootCone = 360f;
+                            mirror = false;
+                            reload = 1f;
+                            shootOnDeath = true;
+                            bullet = new ExplosionBulletType(140f, 25f){{
+                                shootEffect = new MultiEffect(Fx.massiveExplosion, new WrapEffect(Fx.dynamicSpikes, Pal.techBlue, 24f), new WaveEffect(){{
+                                    colorFrom = colorTo = Pal.techBlue;
+                                    sizeTo = 40f;
+                                    lifetime = 12f;
+                                    strokeFrom = 4f;
+                                }});
+                            }};
+                        }});
+                    }};
+                }};
+            }});
+        }};
+
+        darkTecta = new ErekirUnitType("dark-tecta"){{
+            drag = 0.1f;
+            speed = 0.6f;
+            hitSize = 30f;
+            health = 6500;
+            armor = 5f;
+
+            lockLegBase = true;
+            legContinuousMove = true;
+            legGroupSize = 3;
+            legStraightness = 0.4f;
+            baseLegStraightness = 0.5f;
+            legMaxLength = 1.3f;
+            researchCostMultiplier = 0f;
+
+            stepSound = Sounds.walkerStep;
+            stepSoundVolume = 1f;
+            stepSoundPitch = 1f;
+
+            abilities.add(new ShieldArcAbility(){{
+                region = "tecta-shield";
+                radius = 45f;
+                angle = 82f;
+                regen = 40f / 60f;
+                cooldown = 60f * 8f;
+                max = 2200f;
+                y = -20f;
+                width = 8f;
+                whenShooting = false;
+                chanceDeflect = 1f;
+            }});
+
+            rotateSpeed = 2.1f;
+
+            legCount = 6;
+            legLength = 15f;
+            legForwardScl = 0.45f;
+            legMoveSpace = 1.4f;
+            rippleScale = 2f;
+            stepShake = 0.5f;
+            legExtension = -5f;
+            legBaseOffset = 5f;
+
+            ammoType = new PowerAmmoType(2000);
+
+            legSplashDamage = 32;
+            legSplashRange = 30;
+            drownTimeMultiplier = 0.5f;
+
+            hovering = true;
+            shadowElevation = 0.4f;
+            groundLayer = Layer.legUnit;
+
+            weapons.add(new Weapon("dark-tecta-weapon"){{
+                shootSound = Sounds.shootMalign;
+                mirror = true;
+                top = false;
+
+                x = 62/4f;
+                y = 1f;
+                shootY = 47 / 4f;
+                recoil = 3f;
+                reload = 40f;
+                shake = 3f;
+                cooldownTime = 40f;
+
+                shoot.shots = 3;
+                inaccuracy = 3f;
+                velocityRnd = 0.33f;
+                heatColor = Color.red;
+
+                bullet = new MissileBulletType(4.2f, 60){{
+                    homingPower = 0.2f;
+                    weaveMag = 4;
+                    weaveScale = 4;
+                    lifetime = 55f;
+                    shootEffect = Fx.shootBig2;
+                    smokeEffect = Fx.shootSmokeTitan;
+                    splashDamage = 70f;
+                    splashDamageRadius = 30f;
+                    frontColor = Color.white;
+                    hitSound = Sounds.none;
+                    width = height = 10f;
+
+                    lightColor = trailColor = backColor = Pal.techBlue;
+                    lightRadius = 40f;
+                    lightOpacity = 0.7f;
+
+                    trailWidth = 2.8f;
+                    trailLength = 20;
+                    trailChance = -1f;
+                    despawnSound = Sounds.explosionDull;
+
+                    despawnEffect = Fx.none;
+                    hitEffect = new ExplosionEffect(){{
+                        lifetime = 20f;
+                        waveStroke = 2f;
+                        waveColor = sparkColor = trailColor;
+                        waveRad = 12f;
+                        smokeSize = 0f;
+                        smokeSizeBase = 0f;
+                        sparks = 10;
+                        sparkRad = 35f;
+                        sparkLen = 4f;
+                        sparkStroke = 1.5f;
+                    }};
+                }};
+            }});
+        }};
+
+        darkCollaris = new ErekirUnitType("dark-collaris"){{
+            drag = 0.1f;
+            speed = 1.1f;
+            hitSize = 44f;
+            health = 18000;
+            armor = 9f;
+            rotateSpeed = 1.6f;
+            lockLegBase = true;
+            legContinuousMove = true;
+            legStraightness = 0.6f;
+            baseLegStraightness = 0.5f;
+
+            stepSound = Sounds.walkerStep;
+            stepSoundVolume = 1.1f;
+            stepSoundPitch = 0.9f;
+
+            legCount = 8;
+            legLength = 30f;
+            legForwardScl = 2.1f;
+            legMoveSpace = 1.05f;
+            rippleScale = 1.2f;
+            stepShake = 0.5f;
+            legGroupSize = 2;
+            legExtension = -6f;
+            legBaseOffset = 19f;
+            legStraightLength = 0.9f;
+            legMaxLength = 1.2f;
+
+            ammoType = new PowerAmmoType(2000);
+
+            legSplashDamage = 32;
+            legSplashRange = 32;
+            drownTimeMultiplier = 0.5f;
+
+            hovering = true;
+            shadowElevation = 0.4f;
+            groundLayer = Layer.legUnit;
+
+            targetAir = false;
+            alwaysShootWhenMoving = true;
+
+            weapons.add(new Weapon("dark-collaris-weapon"){{
+                shootSound = Sounds.shootCollaris;
+                mirror = true;
+                rotationLimit = 30f;
+                rotateSpeed = 0.4f;
+                rotate = true;
+
+                x = 48 / 4f;
+                y = -28f / 4f;
+                shootY = 64f / 4f;
+                recoil = 4f;
+                reload = 130f;
+                cooldownTime = reload * 1.2f;
+                shake = 7f;
+                layerOffset = 0.02f;
+                shadow = 10f;
+
+                shootStatus = StatusEffects.slow;
+                shootStatusDuration = reload + 1f;
+
+                shoot.shots = 1;
+                heatColor = Color.red;
+
+                for(int i = 0; i < 5; i++){
+                    int fi = i;
+                    parts.add(new RegionPart("-blade"){{
+                        under = true;
+                        layerOffset = -0.001f;
+                        heatColor = Pal.techBlue;
+                        heatProgress = PartProgress.heat.add(0.2f).min(PartProgress.warmup);
+                        progress = PartProgress.warmup.blend(PartProgress.reload, 0.1f);
+                        x = 13.5f / 4f;
+                        y = 10f / 4f - fi * 2f;
+                        moveY = 1f - fi * 1f;
+                        moveX = fi * 0.3f;
+                        moveRot = -45f - fi * 17f;
+
+                        moves.add(new PartMove(PartProgress.reload.inv().mul(1.8f).inv().curve(fi / 5f, 0.2f), 0f, 0f, 36f));
+                    }});
+                }
+
+                bullet = new ArtilleryBulletType(5.5f, 260){{
+                    collidesTiles = collides = true;
+                    lifetime = 60f;
+                    shootEffect = Fx.shootBigColor;
+                    smokeEffect = Fx.shootSmokeSquareBig;
+                    frontColor = Color.white;
+                    trailEffect = new MultiEffect(Fx.artilleryTrail, Fx.artilleryTrailSmoke);
+                    hitSound = Sounds.none;
+                    width = 18f;
+                    height = 24f;
+                    rangeOverride = 385f;
+
+                    lightColor = trailColor = hitColor = backColor = Pal.techBlue;
+                    lightRadius = 40f;
+                    lightOpacity = 0.7f;
+
+                    trailWidth = 4.5f;
+                    trailLength = 19;
+                    trailChance = -1f;
+
+                    despawnEffect = Fx.none;
+                    despawnSound = Sounds.explosionDull;
+
+                    hitEffect = despawnEffect = new ExplosionEffect(){{
+                        lifetime = 50f;
+                        waveStroke = 5f;
+                        waveColor = sparkColor = trailColor;
+                        waveRad = 45f;
+                        smokeSize = 0f;
+                        smokeSizeBase = 0f;
+                        sparks = 10;
+                        sparkRad = 25f;
+                        sparkLen = 8f;
+                        sparkStroke = 3f;
+                    }};
+
+                    splashDamage = 120f;
+                    splashDamageRadius = 36f;
+
+                    fragBullets = 15;
+                    fragVelocityMin = 0.5f;
+                    fragRandomSpread = 130f;
+                    fragLifeMin = 0.3f;
+                    despawnShake = 5f;
+
+                    fragBullet = new BasicBulletType(5.5f, 37){{
+                        pierceCap = 2;
+                        pierceBuilding = true;
+
+                        homingPower = 0.09f;
+                        homingRange = 150f;
+
+                        lifetime = 40f;
+                        shootEffect = Fx.shootBigColor;
+                        smokeEffect = Fx.shootSmokeSquareBig;
+                        frontColor = Color.white;
+                        hitSound = Sounds.none;
+                        width = 12f;
+                        height = 20f;
+
+                        lightColor = trailColor = hitColor = backColor = Pal.techBlue;
+                        lightRadius = 40f;
+                        lightOpacity = 0.7f;
+
+                        trailWidth = 2.2f;
+                        trailLength = 7;
+                        trailChance = -1f;
+
+                        collidesAir = false;
+
+                        despawnEffect = Fx.none;
+                        splashDamage = 35f;
+                        splashDamageRadius = 30f;
+
+                        hitEffect = despawnEffect = new MultiEffect(new ExplosionEffect(){{
+                            lifetime = 30f;
+                            waveStroke = 2f;
+                            waveColor = sparkColor = trailColor;
+                            waveRad = 5f;
+                            smokeSize = 0f;
+                            smokeSizeBase = 0f;
+                            sparks = 5;
+                            sparkRad = 20f;
+                            sparkLen = 6f;
+                            sparkStroke = 2f;
+                        }}, Fx.blastExplosion);
+                    }};
+                }};
+            }});
+        }};
+
   }
 }
