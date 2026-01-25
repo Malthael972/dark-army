@@ -61,6 +61,31 @@ public class DarkArmyBlocks {
             new UnitType[]{DarkArmyUnits.darkStell, DarkArmyUnits.darkLocus}
             );
         }};
-    
+
+    //mech production
+
+    //Ship production
+   
+    //prime fabricator
+
+    DarkPrimeRefabricator = new Reconstructor("dark-prime-refabricator"){{
+            requirements(Category.units, with(Items.thorium, 250, Items.oxide, 200, Items.tungsten, 200, Items.silicon, 400));
+            regionSuffix = "-dark";
+
+            researchCostMultipliers.put(Items.thorium, 0.2f);
+
+            size = 5;
+            consumePower(4.5f);
+            consumeLiquid(Liquids.nitrogen, 10f / 60f);
+            consumeItems(with(Items.thorium, 80, Items.silicon, 100));
+
+            constructTime = 60f * 60f;
+
+            upgrades.addAll(
+            new UnitType[]{UnitTypes.locus, UnitTypes.precept},
+            new UnitType[]{UnitTypes.cleroi, UnitTypes.anthicus},
+            new UnitType[]{UnitTypes.avert, UnitTypes.obviate}
+            );
+        }};
   }
 }
