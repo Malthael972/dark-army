@@ -30,6 +30,7 @@ import static mindustry.type.ItemStack.with;
 
 public class DarkArmyBlocks {
   public static Block darkTankFabricator;
+  public static Block darkTankRefabricator;
 
   public static void load(){
 // tank production
@@ -42,6 +43,23 @@ public class DarkArmyBlocks {
             regionSuffix = "-dark";
             fogRadius = 3;
             consumePower(1.5f);
+        }};
+
+    darkTankRefabricator = new Reconstructor("dark-tank-refabricator"){{
+            requirements(Category.units, with(Items.beryllium, 200, Items.tungsten, 80, Items.silicon, 100));
+            regionSuffix = "-dark";
+
+            size = 3;
+            consumePower(3f);
+            consumeLiquid(Liquids.hydrogen, 3f / 60f);
+            consumeItems(with(Items.silicon, 40, Items.tungsten, 30));
+
+            constructTime = 60f * 30f;
+            researchCostMultiplier = 0.75f;
+
+            upgrades.addAll(
+            new UnitType[]{DarkArmyUnits.darkStell, DarkArmyUnits.darkLocus}
+            );
         }};
     
   }
