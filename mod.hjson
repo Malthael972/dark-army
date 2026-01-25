@@ -1,7 +1,7 @@
 name: "dark-army"
 displayName: "Dark Army"
 author: "Malthael972"
-main: "darkarmy.mod.DarkArmy"
+main: "darkarmy.DarkArmy"
 description: "Dark Army testing."
 version: 1.0
 minGameVersion: 154
