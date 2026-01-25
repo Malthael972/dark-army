@@ -1,4 +1,4 @@
-package darkarmy;
+package darkarmy.content;
 
 import mindustry.mod.Mod;
 
