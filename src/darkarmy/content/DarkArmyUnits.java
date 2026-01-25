@@ -52,7 +52,7 @@ import mindustry.type.weapons.RepairBeamWeapon;
 import mindustry.world.meta.BlockFlag;
 import mindustry.world.meta.Env;
 
-public class DarkArmyUnits{
+public class DarkArmyUnits {
   public static UnitType darkstell;
 
   public static void load(){
