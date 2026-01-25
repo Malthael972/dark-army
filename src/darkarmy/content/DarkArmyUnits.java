@@ -1,4 +1,4 @@
-packagedarkarmy.content;
+package darkarmy.content;
 
 import arc.Core;
 import arc.func.Cons;
