@@ -44,8 +44,11 @@ public class DarkArmyUnits {
             health = 850;
             armor = 6f;
             itemCapacity = 0;
+            floorMultiplier = 0.95f;
             treadRects = new Rect[]{new Rect(12 - 32f, 7 - 32f, 14, 51)};
             researchCostMultiplier = 0f;
+            tankMoveVolume *= 0.32f;
+            tankMoveSound = Sounds.tankMoveSmall;
 
             weapons.add(new Weapon("dark-stell-weapon"){{
                 shootSound = Sounds.shootStell;
