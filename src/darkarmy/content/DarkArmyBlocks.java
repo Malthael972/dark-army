@@ -31,7 +31,7 @@ import static mindustry.type.ItemStack.with;
 public class DarkArmyBlocks {
   public static Block darkTankFabricator;
   public static Block darkTankRefabricator;
-
+  public static Block darkPrimeRefabricator;
   public static void load(){
 // tank production
     darkTankFabricator = new UnitFactory("dark-tank-fabricator"){{
@@ -83,8 +83,8 @@ public class DarkArmyBlocks {
 
             upgrades.addAll(
             new UnitType[]{DarkArmyUnits.darkLocus, DarkArmyUnits.darkPrecept},
-            new UnitType[]{UnitTypes.cleroi, UnitTypes.anthicus},
-            new UnitType[]{UnitTypes.avert, UnitTypes.obviate}
+            new UnitType[]{DarkArmyUnits.darkCleroi, DarkArmyUnits.darkAnthicus},
+            new UnitType[]{DarkArmyUnits.darkAvert, DarkArmyUnits.darkObviate}
             );
         }};
   }
