@@ -44,7 +44,7 @@ public class DarkArmyUnits {
   public static UnitType darkAvert;
   public static UnitType darkObviate;
   public static UnitType darkQuell;
-  public static UnitType darkDirsupt;
+  public static UnitType darkDisrupt;
 
   public static void load(){
     // tank units
