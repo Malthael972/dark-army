@@ -54,7 +54,7 @@ import mindustry.world.meta.BlockFlag;
 import mindustry.world.meta.Env;
 
 public class DarkArmyUnits {
-  public static UnitType darkstell;
+  public static UnitType darkStell;
 
   public static void load(){
     darkStell = new TankUnitType("dark-stell"){{
