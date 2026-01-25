@@ -1,66 +1,33 @@
 package darkarmy.content;
 
 // ================= Arc core & utilities =================
-import arc.Core;
-import arc.func.Cons;
-import arc.graphics.Color;
-import arc.graphics.g2d.Draw;
-import arc.graphics.g2d.Fill;
-import arc.graphics.g2d.Lines;
-import arc.graphics.g2d.TextureRegion;
-import arc.math.Angles;
-import arc.math.Interp;
-import arc.math.Mathf;
-import arc.math.Rand;
-import arc.math.geom.Rect;
-import arc.math.geom.Vec2;
-import arc.scene.ui.layout.Table;
-import arc.struct.ObjectSet;
-import arc.struct.Seq;
-import arc.util.Time;
-import arc.util.Tmp;
-
-// ================= Mindustry core =================
-import mindustry.Vars;
-import mindustry.game.Team;
-import mindustry.content.Fx;
-import mindustry.content.Items;
-import mindustry.content.StatusEffects;
-import mindustry.world.meta.BlockFlag;
-import mindustry.world.meta.Env;
-
-// ================= Mindustry AI =================
-import mindustry.ai.UnitCommand;
-import mindustry.ai.types.BuilderAI;
-import mindustry.ai.types.FlyingAI;
-import mindustry.ai.types.MinerAI;
-
-// ================= Mindustry entities =================
+import arc.graphics.*;
+import arc.graphics.g2d.*;
+import arc.math.*;
+import arc.math.geom.*;
+import arc.struct.*;
+import arc.util.*;
+import mindustry.ai.*;
+import mindustry.ai.types.*;
+import mindustry.annotations.Annotations.*;
 import mindustry.entities.*;
 import mindustry.entities.abilities.*;
 import mindustry.entities.bullet.*;
 import mindustry.entities.effect.*;
 import mindustry.entities.part.*;
 import mindustry.entities.pattern.*;
-import mindustry.entities.units.WeaponMount;
-
-// ================= Mindustry graphics =================
-import mindustry.graphics.Drawf;
-import mindustry.graphics.Layer;
-import mindustry.graphics.MultiPacker;
-import mindustry.graphics.Pal;
-
-// ================= Mindustry units & weapons =================
 import mindustry.gen.*;
-import mindustry.gen.UnitEntity;
-import mindustry.type.UnitType;
-import mindustry.type.StatusEffect;
-import mindustry.type.Weapon;
-import mindustry.type.ammo.ItemAmmoType;
-import mindustry.type.ammo.PowerAmmoType;
-import mindustry.type.weapons.PointDefenseWeapon;
-import mindustry.type.weapons.RepairBeamWeapon;
-import mindustry.type.unit.*; // includes TankUnitType, GroundUnitType, etc.
+import mindustry.graphics.*;
+import mindustry.type.*;
+import mindustry.type.ammo.*;
+import mindustry.type.unit.*;
+import mindustry.type.weapons.*;
+import mindustry.world.meta.*;
+
+import static arc.graphics.g2d.Draw.*;
+import static arc.graphics.g2d.Lines.*;
+import static arc.math.Angles.*;
+import static mindustry.Vars.*;
 
 public class DarkArmyUnits {
   public static UnitType darkStell;
