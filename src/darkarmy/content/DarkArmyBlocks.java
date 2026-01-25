@@ -92,7 +92,7 @@ public static void load(){
             researchCostMultiplier = 0.75f;
 
             upgrades.addAll(
-            new UnitType[]{DarkArmyUnits.darkmerui, DarkArmyUnits.darkCleroi}
+            new UnitType[]{DarkArmyUnits.darkMerui, DarkArmyUnits.darkCleroi}
             );
         }};
 
