@@ -28,7 +28,7 @@ import mindustry.world.blocks.storage.*;
 import mindustry.world.blocks.units.*;
 
 public class DarkArmyBlocks {
-  public static block darkTankFabricator;
+  public static Block darkTankFabricator;
 
   public static void load(){
 // tank production
