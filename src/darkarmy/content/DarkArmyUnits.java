@@ -40,11 +40,11 @@ public class DarkArmyUnits {
   public static UnitType darkAnthicus;
   public static UnitType darkTecta;
   public static UnitType darkCollaris;
-  public static 
-  public static
-  public static
-  public static
-  public static
+  public static UnitType darkElude;
+  public static UnitType darkAvert;
+  public static UnitType darkObviate;
+  public static UnitType darkQuell;
+  public static UnitType darkDirsupt;
 
   public static void load(){
     // tank units
