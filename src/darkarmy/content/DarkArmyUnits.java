@@ -37,6 +37,7 @@ public class DarkArmyUnits {
   public static UnitType darkConquer;
 
   public static void load(){
+    // tank units
     darkStell = new TankUnitType("dark-stell"){{
         constructor = UnitEntity::create;
       
