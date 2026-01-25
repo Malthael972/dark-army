@@ -68,7 +68,7 @@ public class DarkArmyBlocks {
    
     //prime fabricator
 
-    DarkPrimeRefabricator = new Reconstructor("dark-prime-refabricator"){{
+    darkPrimeRefabricator = new Reconstructor("dark-prime-refabricator"){{
             requirements(Category.units, with(Items.thorium, 250, Items.oxide, 200, Items.tungsten, 200, Items.silicon, 400));
             regionSuffix = "-dark";
 
@@ -82,7 +82,7 @@ public class DarkArmyBlocks {
             constructTime = 60f * 60f;
 
             upgrades.addAll(
-            new UnitType[]{UnitTypes.locus, UnitTypes.precept},
+            new UnitType[]{DarkArmyUnits.darkLocus, DarkArmyUnits.darkPrecept},
             new UnitType[]{UnitTypes.cleroi, UnitTypes.anthicus},
             new UnitType[]{UnitTypes.avert, UnitTypes.obviate}
             );
