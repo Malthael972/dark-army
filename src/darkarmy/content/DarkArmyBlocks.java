@@ -26,6 +26,7 @@ import mindustry.world.blocks.production.*;
 import mindustry.world.blocks.sandbox.*;
 import mindustry.world.blocks.storage.*;
 import mindustry.world.blocks.units.*;
+import static mindustry.type.ItemStack.with;
 
 public class DarkArmyBlocks {
   public static Block darkTankFabricator;
