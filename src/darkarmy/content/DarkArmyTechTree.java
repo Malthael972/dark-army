@@ -1,108 +1,76 @@
 package darkarmy.content;
 
-import arc.struct.*;
-import mindustry.content.*;
-import mindustry.ctype.*;
-import mindustry.type.*;
+import arc.struct.Seq;
+import mindustry.ctype.UnlockableContent;
+import mindustry.content.Blocks;
+import mindustry.content.UnitTypes;
+import mindustry.game.Objectives.Research;
 
 import static mindustry.content.TechTree.*;
 
 public class DarkArmyTechTree {
-    
+
     public static void load() {
-        // Tank units
-        node(Blocks.tankFabricator, () -> {
-            node(DarkArmyBlocks.darkTankFabricator, () -> {
-                node(DarkArmyUnits.darkStell, () -> {});
-            });
-        });
-        
-        node(UnitTypes.locus, () -> {
-            node(DarkArmyUnits.darkLocus, () -> {});
-        });
-        
-        node(UnitTypes.precept, () -> {
-            node(DarkArmyUnits.darkPrecept, () -> {});
-        });
-        
-        node(UnitTypes.vanquish, () -> {
-            node(DarkArmyUnits.darkVanquish, () -> {});
-        });
-        
-        node(UnitTypes.conquer, () -> {
-            node(DarkArmyUnits.darkConquer, () -> {});
-        });
-        
-        // Mech units
-        node(Blocks.mechFabricator, () -> {
-            node(DarkArmyBlocks.darkMechFabricator, () -> {
-                node(DarkArmyUnits.darkMerui, () -> {});
-            });
-        });
-        
-        node(UnitTypes.cleroi, () -> {
-            node(DarkArmyUnits.darkCleroi, () -> {});
-        });
-        
-        node(UnitTypes.anthicus, () -> {
-            node(DarkArmyUnits.darkAnthicus, () -> {});
-        });
-        
-        node(UnitTypes.tecta, () -> {
-            node(DarkArmyUnits.darkTecta, () -> {});
-        });
-        
-        node(UnitTypes.collaris, () -> {
-            node(DarkArmyUnits.darkCollaris, () -> {});
-        });
-        
-        // Ship units
-        node(Blocks.shipFabricator, () -> {
-            node(DarkArmyBlocks.darkShipFabricator, () -> {
-                node(DarkArmyUnits.darkElude, () -> {});
-            });
-        });
-        
-        node(UnitTypes.avert, () -> {
-            node(DarkArmyUnits.darkAvert, () -> {});
-        });
-        
-        node(UnitTypes.obviate, () -> {
-            node(DarkArmyUnits.darkObviate, () -> {});
-        });
-        
-        node(UnitTypes.quell, () -> {
-            node(DarkArmyUnits.darkQuell, () -> {});
-        });
-        
-        node(UnitTypes.disrupt, () -> {
-            node(DarkArmyUnits.darkDisrupt, () -> {});
-        });
-        
-        // Reconstructors
-        node(Blocks.tankRefabricator, () -> {
-            node(DarkArmyBlocks.darkTankRefabricator, () -> {});
-        });
-        
-        node(Blocks.mechRefabricator, () -> {
-            node(DarkArmyBlocks.darkMechRefabricator, () -> {});
-        });
-        
-        node(Blocks.shipRefabricator, () -> {
-            node(DarkArmyBlocks.darkShipRefabricator, () -> {});
-        });
-        
-        node(Blocks.primeRefabricator, () -> {
-            node(DarkArmyBlocks.darkPrimeRefabricator, () -> {});
-        });
-        
-        // Power blocks
-        node(Blocks.turbineCondenser, () -> {
-            node(DarkArmyBlocks.darkTurbineCondenser, () -> {});
-        });
-        
-        node(Blocks.beamNode, () -> {
-            node(DarkArmyBlocks.darkNode, () -> {});
-        });
+
+        // =====================
+        // UNITS
+        // =====================
+
+        addAfter(UnitTypes.stell,     DarkArmyUnits.darkStell);
+        addAfter(UnitTypes.locus,     DarkArmyUnits.darkLocus);
+
+        addAfter(UnitTypes.merui,     DarkArmyUnits.darkMerui);
+        addAfter(UnitTypes.cleroi,    DarkArmyUnits.darkCleroi);
+
+        addAfter(UnitTypes.elude,     DarkArmyUnits.darkElude);
+        addAfter(UnitTypes.avert,     DarkArmyUnits.darkAvert);
+        addAfter(UnitTypes.obviate,   DarkArmyUnits.darkObviate);
+
+        addAfter(UnitTypes.quell,     DarkArmyUnits.darkQuell);
+        addAfter(UnitTypes.disrupt,   DarkArmyUnits.darkDisrupt);
+
+        addAfter(UnitTypes.precept,   DarkArmyUnits.darkPrecept);
+        addAfter(UnitTypes.anthicus,  DarkArmyUnits.darkAnthicus);
+
+
+        // =====================
+        // BLOCKS
+        // =====================
+
+        addAfter(Blocks.tankFabricator,        DarkArmyBlocks.darkTankFabricator);
+        addAfter(Blocks.tankRefabricator,      DarkArmyBlocks.darkTankRefabricator);
+
+        addAfter(Blocks.mechFabricator,        DarkArmyBlocks.darkMechFabricator);
+        addAfter(Blocks.mechRefabricator,      DarkArmyBlocks.darkMechRefabricator);
+
+        addAfter(Blocks.shipFabricator,        DarkArmyBlocks.darkShipFabricator);
+        addAfter(Blocks.shipRefabricator,      DarkArmyBlocks.darkShipRefabricator);
+
+        addAfter(Blocks.primeRefabricator,     DarkArmyBlocks.darkPrimeRefabricator);
+
+        addAfter(Blocks.turbineCondenser,      DarkArmyBlocks.darkTurbineCondenser);
+        addAfter(Blocks.beamNode,              DarkArmyBlocks.darkNode);
+    }
+
+    /**
+     * Adds mod content directly after vanilla content,
+     * with identical research cost and requirements.
+     */
+    private static void addAfter(UnlockableContent vanilla, UnlockableContent mod) {
+
+        if (vanilla.techNode == null) {
+            throw new RuntimeException(
+                "Vanilla tech node missing: " + vanilla.name +
+                " (check load order)"
+            );
+        }
+
+        node(
+            vanilla.techNode,
+            mod,
+            vanilla.researchRequirements(),
+            Seq.with(new Research(vanilla)),
+            () -> {}
+        );
     }
 }
