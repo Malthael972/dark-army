@@ -63,6 +63,11 @@ public class DarkArmyTechTree {
         // Copy research cost multipliers from parent if they exist
         if(parentNode.researchCostMultipliers != null) {
             node.researchCostMultipliers = parentNode.researchCostMultipliers;
+             // Explicitly set the planet to Erekir
+        node.planet = Planets.erekir;
+        
+        // Add to content's shown planets
+        child.shownPlanets.add(Planets.erekir);
         }
     }
 }
