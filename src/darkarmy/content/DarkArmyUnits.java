@@ -21,7 +21,7 @@ import mindustry.type.*;
 import mindustry.type.ammo.*;
 import mindustry.type.unit.*;
 import mindustry.type.weapons.*;
-import mindustry.type.weapon;
+import mindustry.type.Weapon;
 import mindustry.world.meta.*;
 import mindustry.content.StatusEffects;
 
