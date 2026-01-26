@@ -33,8 +33,8 @@ public class DarkArmyBlocks {
   public static Block darkTankRefabricator;
   public static Block darkMechFabricator;
   public static Block darkMechRefabricator;
-  public static Block darkshipFabricator;
-  public static Block darkshipRefabricator;
+  public static Block darkShipFabricator;
+  public static Block darkShipRefabricator;
   public static Block darkPrimeRefabricator;
   
 public static void load(){
