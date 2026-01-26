@@ -207,7 +207,7 @@ public static void load(){
             group = BlockGroup.liquids;
             displayEfficiencyScale = 1f / 9f;
             minEfficiency = 9f - 0.0001f;
-            powerProduction = 3f / 9f;
+            powerProduction = 124f / 9f;
             displayEfficiency = false;
             generateEffect = Fx.turbinegenerate;
             effectChance = 0.04f;
@@ -229,13 +229,13 @@ public static void load(){
   darkNode = new BeamNode("dark-node"){{
             requirements(Category.power, with(Items.beryllium, 8));
             consumesPower = outputsPower = true;
-            health = 90;
-            range = 10;
+            health = 120;
+            range = 15;
             fogRadius = 1;
             researchCost = with(Items.beryllium, 5);
             buildCostMultiplier = 2.5f;
 
-            consumePowerBuffered(1000f);
+            consumePowerBuffered(2000f);
      }};
   }
 }
