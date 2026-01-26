@@ -188,5 +188,6 @@ public static void load(){
             buildCostMultiplier = 2.5f;
 
             consumePowerBuffered(1000f);
+     }};
   }
 }
