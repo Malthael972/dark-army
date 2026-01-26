@@ -8,9 +8,12 @@ import darkarmy.content.DarkArmyTechTree;
 
 public class DarkArmy extends Mod {
   @Override
-  public void loadContent() {
-    DarkArmyUnits.load();
+public void loadContent() {
     DarkArmyBlocks.load();
-    DarkArmyTechTree.load();
-  }
-}  
+    DarkArmyUnits.load();
+    
+    // Load tech tree AFTER vanilla content is loaded
+    Events.on(EventType.ContentInitEvent.class, e -> {
+        DarkArmyTechTree.load();
+    });
+}
