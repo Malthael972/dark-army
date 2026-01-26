@@ -3,7 +3,6 @@ package darkarmy;
 import mindustry.mod.Mod;
 import darkarmy.content.DarkArmyUnits;
 import darkarmy.content.DarkArmyBlocks;
-import darkarmy.content.DarkArmyTechTree;
 
 
 public class DarkArmy extends Mod {
@@ -12,9 +11,4 @@ public class DarkArmy extends Mod {
     DarkArmyUnits.load();
     DarkArmyBlocks.load();
   }
-  @Override
-    public void init() {
-        // Call tech tree AFTER vanilla content is fully loaded
-        DarkArmyTechTree.load();
-    }
 }  
