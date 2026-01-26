@@ -18,9 +18,8 @@ import static mindustry.content.TechTree.*;
 public class DarkArmyTechTree {
 
     public static void load() {
-         Planets.erekir.techTree = nodeRoot("erekir", coreBastion, true, () -> {
+         
              
         
   }
  }
-}
