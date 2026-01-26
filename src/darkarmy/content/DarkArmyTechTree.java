@@ -2,7 +2,7 @@ package darkarmy.content;
 
 import arc.struct.*;
 import mindustry.content.*;
-import mindustry.game.Objectives.*;
+import mindustry.ctype.*;
 import mindustry.type.*;
 
 import static mindustry.content.TechTree.*;
@@ -10,60 +10,99 @@ import static mindustry.content.TechTree.*;
 public class DarkArmyTechTree {
     
     public static void load() {
-        // Add your units to vanilla tech tree
-        
         // Tank units
-        Blocks.tankFabricator.node(DarkArmyBlocks.darkTankFabricator, () -> {
-            node(DarkArmyUnits.darkStell, () -> {});
+        node(Blocks.tankFabricator, () -> {
+            node(DarkArmyBlocks.darkTankFabricator, () -> {
+                node(DarkArmyUnits.darkStell, () -> {});
+            });
         });
         
-        UnitTypes.locus.node(DarkArmyUnits.darkLocus, () -> {});
+        node(UnitTypes.locus, () -> {
+            node(DarkArmyUnits.darkLocus, () -> {});
+        });
         
-        UnitTypes.precept.node(DarkArmyUnits.darkPrecept, () -> {});
+        node(UnitTypes.precept, () -> {
+            node(DarkArmyUnits.darkPrecept, () -> {});
+        });
         
-        UnitTypes.vanquish.node(DarkArmyUnits.darkVanquish, () -> {});
+        node(UnitTypes.vanquish, () -> {
+            node(DarkArmyUnits.darkVanquish, () -> {});
+        });
         
-        UnitTypes.conquer.node(DarkArmyUnits.darkConquer, () -> {});
+        node(UnitTypes.conquer, () -> {
+            node(DarkArmyUnits.darkConquer, () -> {});
+        });
         
         // Mech units
-        Blocks.mechFabricator.node(DarkArmyBlocks.darkMechFabricator, () -> {
-            node(DarkArmyUnits.darkMerui, () -> {});
+        node(Blocks.mechFabricator, () -> {
+            node(DarkArmyBlocks.darkMechFabricator, () -> {
+                node(DarkArmyUnits.darkMerui, () -> {});
+            });
         });
         
-        UnitTypes.cleroi.node(DarkArmyUnits.darkCleroi, () -> {});
+        node(UnitTypes.cleroi, () -> {
+            node(DarkArmyUnits.darkCleroi, () -> {});
+        });
         
-        UnitTypes.anthicus.node(DarkArmyUnits.darkAnthicus, () -> {});
+        node(UnitTypes.anthicus, () -> {
+            node(DarkArmyUnits.darkAnthicus, () -> {});
+        });
         
-        UnitTypes.tecta.node(DarkArmyUnits.darkTecta, () -> {});
+        node(UnitTypes.tecta, () -> {
+            node(DarkArmyUnits.darkTecta, () -> {});
+        });
         
-        UnitTypes.collaris.node(DarkArmyUnits.darkCollaris, () -> {});
+        node(UnitTypes.collaris, () -> {
+            node(DarkArmyUnits.darkCollaris, () -> {});
+        });
         
         // Ship units
-        Blocks.shipFabricator.node(DarkArmyBlocks.darkShipFabricator, () -> {
-            node(DarkArmyUnits.darkElude, () -> {});
+        node(Blocks.shipFabricator, () -> {
+            node(DarkArmyBlocks.darkShipFabricator, () -> {
+                node(DarkArmyUnits.darkElude, () -> {});
+            });
         });
         
-        UnitTypes.avert.node(DarkArmyUnits.darkAvert, () -> {});
+        node(UnitTypes.avert, () -> {
+            node(DarkArmyUnits.darkAvert, () -> {});
+        });
         
-        UnitTypes.obviate.node(DarkArmyUnits.darkObviate, () -> {});
+        node(UnitTypes.obviate, () -> {
+            node(DarkArmyUnits.darkObviate, () -> {});
+        });
         
-        UnitTypes.quell.node(DarkArmyUnits.darkQuell, () -> {});
+        node(UnitTypes.quell, () -> {
+            node(DarkArmyUnits.darkQuell, () -> {});
+        });
         
-        UnitTypes.disrupt.node(DarkArmyUnits.darkDisrupt, () -> {});
+        node(UnitTypes.disrupt, () -> {
+            node(DarkArmyUnits.darkDisrupt, () -> {});
+        });
         
         // Reconstructors
-        Blocks.tankRefabricator.node(DarkArmyBlocks.darkTankRefabricator, () -> {});
+        node(Blocks.tankRefabricator, () -> {
+            node(DarkArmyBlocks.darkTankRefabricator, () -> {});
+        });
         
-        Blocks.mechRefabricator.node(DarkArmyBlocks.darkMechRefabricator, () -> {});
+        node(Blocks.mechRefabricator, () -> {
+            node(DarkArmyBlocks.darkMechRefabricator, () -> {});
+        });
         
-        Blocks.shipRefabricator.node(DarkArmyBlocks.darkShipRefabricator, () -> {});
+        node(Blocks.shipRefabricator, () -> {
+            node(DarkArmyBlocks.darkShipRefabricator, () -> {});
+        });
         
-        Blocks.primeRefabricator.node(DarkArmyBlocks.darkPrimeRefabricator, () -> {});
+        node(Blocks.primeRefabricator, () -> {
+            node(DarkArmyBlocks.darkPrimeRefabricator, () -> {});
+        });
         
         // Power blocks
-        Blocks.turbineCondenser.node(DarkArmyBlocks.darkTurbineCondenser, () -> {});
+        node(Blocks.turbineCondenser, () -> {
+            node(DarkArmyBlocks.darkTurbineCondenser, () -> {});
+        });
         
-        Blocks.beamNode.node(DarkArmyBlocks.darkNode, () -> {});
+        node(Blocks.beamNode, () -> {
+            node(DarkArmyBlocks.darkNode, () -> {});
+        });
     }
 }
-
