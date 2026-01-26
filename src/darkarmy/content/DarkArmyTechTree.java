@@ -18,6 +18,7 @@ import static mindustry.content.TechTree.*;
 public class DarkArmyTechTree {
 
     public static void load() {
+        
 
     }
 }
