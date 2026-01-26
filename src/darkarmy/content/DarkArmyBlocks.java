@@ -39,6 +39,9 @@ public class DarkArmyBlocks {
   public static Block darkPrimeRefabricator;
   public static Block darkNode;
   public static Block darkTurbineCondenser;
+  public static Block darkShipAssembler;
+  public static Block darkTankAssembler;
+  public static Block darkMechAssembler;
   
 public static void load(){
 // tank production
@@ -70,6 +73,21 @@ public static void load(){
             );
         }};
 
+  darkTankAssembler = new UnitAssembler("dark-tank-assembler"){{
+            requirements(Category.units, with(Items.thorium, 500, Items.oxide, 150, Items.carbide, 80, Items.silicon, 650));
+            regionSuffix = "-dark";
+            size = 5;
+            plans.add(
+            new AssemblerUnitPlan(DarkArmyUnits.darkVanquish, 60f * 50f, PayloadStack.list(DarkArmyUnits.darkStell, 4, Blocks.tungstenWallLarge, 10)),
+            new AssemblerUnitPlan(DarkArmyUnits.darkConquer, 60f * 60f * 3f, PayloadStack.list(DarkArmyUnits.darkLocus, 6, Blocks.carbideWallLarge, 20))
+            );
+            areaSize = 13;
+            researchCostMultiplier = 0.4f;
+
+            consumePower(2.5f);
+            consumeLiquid(Liquids.cyanogen, 9f / 60f);
+        }};
+
     //mech production        
             darkMechFabricator = new UnitFactory("dark-mech-fabricator"){{
             requirements(Category.units, with(Items.silicon, 200, Items.beryllium, 250, Items.tungsten, 10));
@@ -97,6 +115,21 @@ public static void load(){
             upgrades.addAll(
             new UnitType[]{DarkArmyUnits.darkMerui, DarkArmyUnits.darkCleroi}
             );
+        }};
+
+ darkMechAssembler = new UnitAssembler("dark-mech-assembler"){{
+            requirements(Category.units, with(Items.carbide, 200, Items.thorium, 600, Items.oxide, 200, Items.tungsten, 550, Items.silicon, 1000));
+            regionSuffix = "-dark";
+            size = 5;
+            //TODO different reqs
+            plans.add(
+            new AssemblerUnitPlan(DarkArmyUnits.darkTecta, 60f * 70f, PayloadStack.list(DarkArmyUnits.darkMerui, 5, Blocks.tungstenWallLarge, 12)),
+            new AssemblerUnitPlan(DarkArmyUnits.darkCollaris, 60f * 60f * 3f, PayloadStack.list(DarkArmyUnits.darkCleroi, 6, Blocks.carbideWallLarge, 20))
+            );
+            areaSize = 13;
+
+            consumePower(3f);
+            consumeLiquid(Liquids.cyanogen, 12f / 60f);
         }};
 
     //Ship production
@@ -128,6 +161,20 @@ public static void load(){
             );
 
             researchCost = with(Items.beryllium, 500, Items.tungsten, 200, Items.silicon, 300, Items.oxide, 80);
+        }};
+
+  darkShipAssembler = new UnitAssembler("dark-ship-assembler"){{
+            requirements(Category.units, with(Items.carbide, 100, Items.oxide, 200, Items.tungsten, 550, Items.silicon, 900, Items.thorium, 400));
+            regionSuffix = "-dark";
+            size = 5;
+            plans.add(
+            new AssemblerUnitPlan(DarkArmyUnits.darkQuell, 60f * 60f, PayloadStack.list(DarkArmyUnits.darkElude, 4, Blocks.berylliumWallLarge, 12)),
+            new AssemblerUnitPlan(DarkArmyUnits.darkDisrupt, 60f * 60f * 3f, PayloadStack.list(DarkArmyUnits.darkAvert, 6, Blocks.carbideWallLarge, 20))
+            );
+            areaSize = 13;
+
+            consumePower(2.5f);
+            consumeLiquid(Liquids.cyanogen, 12f / 60f);
         }};
    
     //prime fabricator
