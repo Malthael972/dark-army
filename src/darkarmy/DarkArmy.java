@@ -11,6 +11,10 @@ public class DarkArmy extends Mod {
   public void loadContent() {
     DarkArmyUnits.load();
     DarkArmyBlocks.load();
-    DarkArmyTechTree.load();
   }
+  @Override
+    public void init() {
+        // Call tech tree AFTER vanilla content is fully loaded
+        DarkArmyTechTree.load();
+    }
 }  
