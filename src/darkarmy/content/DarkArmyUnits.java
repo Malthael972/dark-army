@@ -10,6 +10,7 @@ import mindustry.ai.*;
 import mindustry.ai.types.*;
 import mindustry.entities.*;
 import mindustry.entities.abilities.*;
+import mindustry.entities.units.weapon;
 import mindustry.entities.bullet.*;
 import mindustry.entities.effect.*;
 import mindustry.entities.part.*;
