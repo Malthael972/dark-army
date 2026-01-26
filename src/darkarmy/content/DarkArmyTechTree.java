@@ -1,101 +1,88 @@
 package darkarmy.content;
 
-import arc.struct.*;
 import mindustry.content.*;
 import mindustry.content.TechTree.*;
-import mindustry.ctype.*;
 import mindustry.game.Objectives.*;
-import mindustry.type.*;
 
 import static mindustry.content.Blocks.*;
 import static mindustry.content.UnitTypes.*;
+import static mindustry.content.TechTree.*;
 
 public class DarkArmyTechTree {
     public static void load() {
         // Tank Units - parallel to vanilla tank line
-        nodeRoot("erekir", stell, () -> {
-            node(DarkArmyUnits.darkStell);
-        });
+        TechNode stellNode = TechTree.all.find(t -> t.content == stell);
+        if(stellNode != null) node(stellNode, DarkArmyUnits.darkStell, () -> {});
         
-        nodeRoot("erekir", locus, () -> {
-            node(DarkArmyUnits.darkLocus);
-        });
+        TechNode locusNode = TechTree.all.find(t -> t.content == locus);
+        if(locusNode != null) node(locusNode, DarkArmyUnits.darkLocus, () -> {});
         
-        nodeRoot("erekir", precept, () -> {
-            node(DarkArmyUnits.darkPrecept);
-        });
+        TechNode preceptNode = TechTree.all.find(t -> t.content == precept);
+        if(preceptNode != null) node(preceptNode, DarkArmyUnits.darkPrecept, () -> {});
         
-        nodeRoot("erekir", vanquish, () -> {
-            node(DarkArmyUnits.darkVanquish);
-        });
+        TechNode vanquishNode = TechTree.all.find(t -> t.content == vanquish);
+        if(vanquishNode != null) node(vanquishNode, DarkArmyUnits.darkVanquish, () -> {});
         
-        nodeRoot("erekir", conquer, () -> {
-            node(DarkArmyUnits.darkConquer);
-        });
+        TechNode conquerNode = TechTree.all.find(t -> t.content == conquer);
+        if(conquerNode != null) node(conquerNode, DarkArmyUnits.darkConquer, () -> {});
         
         // Mech Units - parallel to vanilla mech line
-        nodeRoot("erekir", merui, () -> {
-            node(DarkArmyUnits.darkMerui);
-        });
+        TechNode meruiNode = TechTree.all.find(t -> t.content == merui);
+        if(meruiNode != null) node(meruiNode, DarkArmyUnits.darkMerui, () -> {});
         
-        nodeRoot("erekir", cleroi, () -> {
-            node(DarkArmyUnits.darkCleroi);
-        });
+        TechNode cleroiNode = TechTree.all.find(t -> t.content == cleroi);
+        if(cleroiNode != null) node(cleroiNode, DarkArmyUnits.darkCleroi, () -> {});
         
-        nodeRoot("erekir", anthicus, () -> {
-            node(DarkArmyUnits.darkAnthicus);
-        });
+        TechNode anthicusNode = TechTree.all.find(t -> t.content == anthicus);
+        if(anthicusNode != null) node(anthicusNode, DarkArmyUnits.darkAnthicus, () -> {});
         
-        nodeRoot("erekir", tecta, () -> {
-            node(DarkArmyUnits.darkTecta);
-        });
+        TechNode tectaNode = TechTree.all.find(t -> t.content == tecta);
+        if(tectaNode != null) node(tectaNode, DarkArmyUnits.darkTecta, () -> {});
         
-        nodeRoot("erekir", collaris, () -> {
-            node(DarkArmyUnits.darkCollaris);
-        });
+        TechNode collarisNode = TechTree.all.find(t -> t.content == collaris);
+        if(collarisNode != null) node(collarisNode, DarkArmyUnits.darkCollaris, () -> {});
         
         // Ship Units - parallel to vanilla ship line
-        nodeRoot("erekir", elude, () -> {
-            node(DarkArmyUnits.darkElude);
-        });
+        TechNode eludeNode = TechTree.all.find(t -> t.content == elude);
+        if(eludeNode != null) node(eludeNode, DarkArmyUnits.darkElude, () -> {});
         
-        nodeRoot("erekir", avert, () -> {
-            node(DarkArmyUnits.darkAvert);
-        });
+        TechNode avertNode = TechTree.all.find(t -> t.content == avert);
+        if(avertNode != null) node(avertNode, DarkArmyUnits.darkAvert, () -> {});
         
-        nodeRoot("erekir", obviate, () -> {
-            node(DarkArmyUnits.darkObviate);
-        });
+        TechNode obviateNode = TechTree.all.find(t -> t.content == obviate);
+        if(obviateNode != null) node(obviateNode, DarkArmyUnits.darkObviate, () -> {});
         
-        nodeRoot("erekir", quell, () -> {
-            node(DarkArmyUnits.darkQuell);
-        });
+        TechNode quellNode = TechTree.all.find(t -> t.content == quell);
+        if(quellNode != null) node(quellNode, DarkArmyUnits.darkQuell, () -> {});
         
-        nodeRoot("erekir", disrupt, () -> {
-            node(DarkArmyUnits.darkDisrupt);
-        });
+        TechNode disruptNode = TechTree.all.find(t -> t.content == disrupt);
+        if(disruptNode != null) node(disruptNode, DarkArmyUnits.darkDisrupt, () -> {});
         
         // Production Blocks - parallel to vanilla fabricators
-        nodeRoot("erekir", tankFabricator, () -> {
-            node(DarkArmyBlocks.darkTankFabricator, () -> {
-                node(DarkArmyBlocks.darkTankRefabricator);
+        TechNode tankFabNode = TechTree.all.find(t -> t.content == tankFabricator);
+        if(tankFabNode != null) {
+            node(tankFabNode, DarkArmyBlocks.darkTankFabricator, () -> {
+                node(DarkArmyBlocks.darkTankRefabricator, () -> {});
             });
-        });
+        }
         
-        nodeRoot("erekir", mechFabricator, () -> {
-            node(DarkArmyBlocks.darkMechFabricator, () -> {
-                node(DarkArmyBlocks.darkMechRefabricator);
+        TechNode mechFabNode = TechTree.all.find(t -> t.content == mechFabricator);
+        if(mechFabNode != null) {
+            node(mechFabNode, DarkArmyBlocks.darkMechFabricator, () -> {
+                node(DarkArmyBlocks.darkMechRefabricator, () -> {});
             });
-        });
+        }
         
-        nodeRoot("erekir", shipFabricator, () -> {
-            node(DarkArmyBlocks.darkShipFabricator, () -> {
-                node(DarkArmyBlocks.darkShipRefabricator);
+        TechNode shipFabNode = TechTree.all.find(t -> t.content == shipFabricator);
+        if(shipFabNode != null) {
+            node(shipFabNode, DarkArmyBlocks.darkShipFabricator, () -> {
+                node(DarkArmyBlocks.darkShipRefabricator, () -> {});
             });
-        });
+        }
         
-        nodeRoot("erekir", primeRefabricator, () -> {
-            node(DarkArmyBlocks.darkPrimeRefabricator);
-        });
+        TechNode primeRefabNode = TechTree.all.find(t -> t.content == primeRefabricator);
+        if(primeRefabNode != null) {
+            node(primeRefabNode, DarkArmyBlocks.darkPrimeRefabricator, () -> {});
+        }
     }
 }
