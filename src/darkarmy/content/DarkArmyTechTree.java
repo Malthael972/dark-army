@@ -8,40 +8,94 @@ import mindustry.game.Objectives.*;
 import mindustry.type.*;
 
 import static mindustry.content.Blocks.*;
-import static mindustry.content.TechTree.*;
 import static mindustry.content.UnitTypes.*;
 
 public class DarkArmyTechTree {
     public static void load() {
-        // Get Erekir's planet tech tree
-        TechTree.TechNode erekir = TechTree.get(Planets.erekir);
+        // Tank Units - parallel to vanilla tank line
+        nodeRoot("erekir", stell, () -> {
+            node(DarkArmyUnits.darkStell);
+        });
         
-        // Link your blocks into Erekir's tech tree
-        // Example: Branch from tank fabricator
+        nodeRoot("erekir", locus, () -> {
+            node(DarkArmyUnits.darkLocus);
+        });
+        
+        nodeRoot("erekir", precept, () -> {
+            node(DarkArmyUnits.darkPrecept);
+        });
+        
+        nodeRoot("erekir", vanquish, () -> {
+            node(DarkArmyUnits.darkVanquish);
+        });
+        
+        nodeRoot("erekir", conquer, () -> {
+            node(DarkArmyUnits.darkConquer);
+        });
+        
+        // Mech Units - parallel to vanilla mech line
+        nodeRoot("erekir", merui, () -> {
+            node(DarkArmyUnits.darkMerui);
+        });
+        
+        nodeRoot("erekir", cleroi, () -> {
+            node(DarkArmyUnits.darkCleroi);
+        });
+        
+        nodeRoot("erekir", anthicus, () -> {
+            node(DarkArmyUnits.darkAnthicus);
+        });
+        
+        nodeRoot("erekir", tecta, () -> {
+            node(DarkArmyUnits.darkTecta);
+        });
+        
+        nodeRoot("erekir", collaris, () -> {
+            node(DarkArmyUnits.darkCollaris);
+        });
+        
+        // Ship Units - parallel to vanilla ship line
+        nodeRoot("erekir", elude, () -> {
+            node(DarkArmyUnits.darkElude);
+        });
+        
+        nodeRoot("erekir", avert, () -> {
+            node(DarkArmyUnits.darkAvert);
+        });
+        
+        nodeRoot("erekir", obviate, () -> {
+            node(DarkArmyUnits.darkObviate);
+        });
+        
+        nodeRoot("erekir", quell, () -> {
+            node(DarkArmyUnits.darkQuell);
+        });
+        
+        nodeRoot("erekir", disrupt, () -> {
+            node(DarkArmyUnits.darkDisrupt);
+        });
+        
+        // Production Blocks - parallel to vanilla fabricators
         nodeRoot("erekir", tankFabricator, () -> {
             node(DarkArmyBlocks.darkTankFabricator, () -> {
-                node(DarkArmyBlocks.darkTankRefabricator, () -> {
-                    // Further upgrades if needed
-                });
+                node(DarkArmyBlocks.darkTankRefabricator);
             });
         });
         
-        // Branch from mech fabricator
         nodeRoot("erekir", mechFabricator, () -> {
             node(DarkArmyBlocks.darkMechFabricator, () -> {
-                node(DarkArmyBlocks.darkMechRefabricator, () -> {
-                    // Further upgrades
-                });
+                node(DarkArmyBlocks.darkMechRefabricator);
             });
         });
         
-        // Branch from ship fabricator
         nodeRoot("erekir", shipFabricator, () -> {
             node(DarkArmyBlocks.darkShipFabricator, () -> {
-                node(DarkArmyBlocks.darkShipRefabricator, () -> {
-                    node(DarkArmyBlocks.darkPrimeRefabricator);
-                });
+                node(DarkArmyBlocks.darkShipRefabricator);
             });
+        });
+        
+        nodeRoot("erekir", primeRefabricator, () -> {
+            node(DarkArmyBlocks.darkPrimeRefabricator);
         });
     }
 }
