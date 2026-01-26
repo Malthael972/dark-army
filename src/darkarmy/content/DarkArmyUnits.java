@@ -96,6 +96,7 @@ public class DarkArmyUnits {
         }};
 
      darkLocus = new TankUnitType("dark-locus"){{
+       constructor = UnitEntity::create;
             hitSize = 18f;
             treadPullOffset = 5;
             speed = 0.7f;
@@ -178,6 +179,7 @@ public class DarkArmyUnits {
         }};
 
      darkPrecept = new TankUnitType("dark-precept"){{
+       constructor = UnitEntity::create;
             hitSize = 24f;
             treadPullOffset = 5;
             speed = 0.64f;
@@ -251,6 +253,7 @@ public class DarkArmyUnits {
         }};
 
      darkVanquish = new TankUnitType("dark-vanquish"){{
+       constructor = UnitEntity::create;
             hitSize = 28f;
             treadPullOffset = 4;
             speed = 0.63f;
@@ -354,6 +357,7 @@ public class DarkArmyUnits {
         }};
 
     darkConquer = new TankUnitType("dark-conquer"){{
+      constructor = UnitEntity::create;
             hitSize = 46f;
             treadPullOffset = 1;
             speed = 0.48f;
@@ -534,6 +538,7 @@ public class DarkArmyUnits {
     // mech units
     
      darkMerui = new ErekirUnitType("dark-merui"){{
+       constructor = UnitEntity::create;
             speed = 0.72f;
             drag = 0.11f;
             hitSize = 9f;
@@ -620,6 +625,7 @@ public class DarkArmyUnits {
         }};
 
         darkCleroi = new ErekirUnitType("dark-cleroi"){{
+          constructor = UnitEntity::create;
             speed = 0.6f;
             drag = 0.1f;
             hitSize = 14f;
@@ -730,6 +736,7 @@ public class DarkArmyUnits {
         }};
 
         darkAnthicus = new ErekirUnitType("dark-anthicus"){{
+          constructor = UnitEntity::create;
             speed = 0.65f;
             drag = 0.1f;
             hitSize = 21f;
@@ -887,6 +894,7 @@ public class DarkArmyUnits {
         }};
 
         darkTecta = new ErekirUnitType("dark-tecta"){{
+          constructor = UnitEntity::create;
             drag = 0.1f;
             speed = 0.6f;
             hitSize = 30f;
@@ -997,6 +1005,7 @@ public class DarkArmyUnits {
         }};
 
         darkCollaris = new ErekirUnitType("dark-collaris"){{
+          constructor = UnitEntity::create;
             drag = 0.1f;
             speed = 1.1f;
             hitSize = 44f;
@@ -1172,6 +1181,7 @@ public class DarkArmyUnits {
     // ship units
 
   darkElude = new ErekirUnitType("dark-elude"){{
+    constructor = UnitEntity::create;
             hovering = true;
             canDrown = false;
             shadowElevation = 0.1f;
@@ -1241,6 +1251,7 @@ public class DarkArmyUnits {
         }};
 
         darkAvert = new ErekirUnitType("dark-avert"){{
+          constructor = UnitEntity::create;
             lowAltitude = false;
             flying = true;
             drag = 0.08f;
@@ -1288,6 +1299,7 @@ public class DarkArmyUnits {
         }};
 
         darkObviate = new ErekirUnitType("dark-obviate"){{
+          constructor = UnitEntity::create;
             flying = true;
             drag = 0.08f;
             speed = 1.8f;
@@ -1409,6 +1421,7 @@ public class DarkArmyUnits {
         }};
 
         darkQuell = new ErekirUnitType("dark-quell"){{
+          constructor = UnitEntity::create;
             aiController = FlyingFollowAI::new;
             envDisabled = 0;
 
@@ -1513,6 +1526,7 @@ public class DarkArmyUnits {
         }};
 
         darkDisrupt = new ErekirUnitType("dark-disrupt"){{
+          constructor = UnitEntity::create;
             aiController = FlyingFollowAI::new;
             envDisabled = 0;
 
