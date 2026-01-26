@@ -36,6 +36,8 @@ public class DarkArmyBlocks {
   public static Block darkShipFabricator;
   public static Block darkShipRefabricator;
   public static Block darkPrimeRefabricator;
+  public static Block darkNode;
+  public static Block darkTurbineCondenser;
   
 public static void load(){
 // tank production
@@ -148,5 +150,43 @@ public static void load(){
             new UnitType[]{DarkArmyUnits.darkAvert, DarkArmyUnits.darkObviate}
             );
         }};
+
+  // power
+
+  darkTurbineCondenser = new ThermalGenerator("dark-turbine-condenser"){{
+            requirements(Category.power, with(Items.beryllium, 60));
+            attribute = Attribute.steam;
+            group = BlockGroup.liquids;
+            displayEfficiencyScale = 1f / 9f;
+            minEfficiency = 9f - 0.0001f;
+            powerProduction = 3f / 9f;
+            displayEfficiency = false;
+            generateEffect = Fx.turbinegenerate;
+            effectChance = 0.04f;
+            size = 3;
+            ambientSound = Sounds.loopHum;
+            ambientSoundVolume = 0.06f;
+
+            drawer = new DrawMulti(new DrawDefault(), new DrawBlurSpin("-rotator", 0.6f * 9f){{
+                blurThresh = 0.01f;
+            }});
+
+            hasLiquids = true;
+            outputLiquid = new LiquidStack(Liquids.water, 5f / 60f / 9f);
+            liquidCapacity = 20f;
+            fogRadius = 3;
+            researchCost = with(Items.beryllium, 15);
+        }};
+
+  darkNode = new BeamNode("dark-node"){{
+            requirements(Category.power, with(Items.beryllium, 8));
+            consumesPower = outputsPower = true;
+            health = 90;
+            range = 10;
+            fogRadius = 1;
+            researchCost = with(Items.beryllium, 5);
+            buildCostMultiplier = 2.5f;
+
+            consumePowerBuffered(1000f);
   }
 }
