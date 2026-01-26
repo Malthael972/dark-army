@@ -14,7 +14,7 @@ public class DarkArmyTechTree {
         node(Blocks.coreBastion, () -> {
 
             // === DARK ARMY ROOT ===
-            node(DarkArmyBlocks.darkBreach, () -> {
+            node(DarkArmyBlocks.darkNode, () -> {
 
                 // ---- BLOCKS ----
                 node(DarkArmyBlocks.darkTankFabricator, () -> {});
@@ -25,7 +25,7 @@ public class DarkArmyTechTree {
                 node(DarkArmyBlocks.darkShipRefabricator, () -> {});
                 node(DarkArmyBlocks.darkPrimeRefabricator, () -> {});
                 node(DarkArmyBlocks.darkTurbineCondenser, () -> {});
-                node(DarkArmyBlocks.darkNode, () -> {});
+        
             });
 
             // ---- UNITS ----
