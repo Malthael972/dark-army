@@ -14,9 +14,5 @@ public void loadContent() {
     DarkArmyBlocks.load();
     DarkArmyUnits.load();
     
-    // Load tech tree AFTER vanilla content is loaded
-    Events.on(EventType.ContentInitEvent.class, e -> {
-        DarkArmyTechTree.load();
-    });
 }
 }
