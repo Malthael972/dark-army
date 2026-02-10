@@ -6,6 +6,7 @@ import mindustry.mod.Mod;
 import mindustry.game.EventType;
 import darkarmy.content.DarkArmyUnits;
 import darkarmy.content.DarkArmyBlocks;
+import darkarmy.content.DarkArmyTechTree.java;
 
 
 public class DarkArmy extends Mod {
@@ -13,6 +14,7 @@ public class DarkArmy extends Mod {
 public void loadContent() {
     DarkArmyUnits.load();
     DarkArmyBlocks.load();
+    DarkArmyTechTree.load();
   
     
 }
