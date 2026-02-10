@@ -11,8 +11,9 @@ import darkarmy.content.DarkArmyBlocks;
 public class DarkArmy extends Mod {
   @Override
 public void loadContent() {
-    DarkArmyBlocks.load();
     DarkArmyUnits.load();
+    DarkArmyBlocks.load();
+  
     
 }
 }
