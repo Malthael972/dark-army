@@ -69,6 +69,7 @@ treadRegion = Core.atlas.find("dark-stell-treads");
             tankMoveSound = Sounds.tankMoveSmall;
 
             weapons.add(new Weapon("dark-stell-weapon"){{
+                region = Core.atlas.find("dark-stell-weapon");
                 shootSound = Sounds.shootStell;
                 layerOffset = 0.0001f;
                 reload = 50f;
