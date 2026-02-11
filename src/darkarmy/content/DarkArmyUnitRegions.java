@@ -26,9 +26,6 @@ public class DarkArmyUnitRegions {
             DarkArmyUnits.darkStell.treadRegion =
                 Core.atlas.find("dark-stell-treads");
 
-            DarkArmyUnits.darkStell.shadowRegion =
-                Core.atlas.find("dark-stell-shadow");
-
             // weapons
             DarkArmyUnits.darkStell.weapons.each(w ->
                 w.region = Core.atlas.find(w.name)
