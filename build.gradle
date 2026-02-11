@@ -81,7 +81,6 @@ jar{
 
     from("assets/"){
         include "**"
-        into "assets"
     }
 }
 
