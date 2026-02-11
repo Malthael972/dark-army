@@ -12,20 +12,20 @@ public class DarkArmyUnitRegions {
 
         Events.on(EventType.ClientLoadEvent.class, e -> {
 
-            DarkUnits.darkStell.region =
+            DarkArmyUnits.darkStell.region =
                 Core.atlas.find("dark-stell");
 
-            DarkUnits.darkStell.cellRegion =
+            DarkArmyUnits.darkStell.cellRegion =
                 Core.atlas.find("dark-stell-cell");
 
-            DarkUnits.darkStell.treadRegion =
+            DarkArmyUnits.darkStell.treadRegion =
                 Core.atlas.find("dark-stell-treads");
 
-            DarkUnits.darkStell.shadowRegion =
+            DarkArmyUnits.darkStell.shadowRegion =
                 Core.atlas.find("dark-stell-shadow");
 
             // weapons
-            DarkUnits.darkStell.weapons.each(w ->
+            DarkArmyUnits.darkStell.weapons.each(w ->
                 w.region = Core.atlas.find(w.name)
             );
         });
