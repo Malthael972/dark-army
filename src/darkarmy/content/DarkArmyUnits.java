@@ -51,9 +51,6 @@ public class DarkArmyUnits {
     // tank units
     darkStell = new TankUnitType("dark-stell"){{
         constructor = UnitEntity::create;
-region = Core.atlas.find("dark-stell");
-cellRegion = Core.atlas.find("dark-stell-cell");
-treadRegion = Core.atlas.find("dark-stell-treads");
       
             hitSize = 12f;
             treadPullOffset = 3;
@@ -69,7 +66,6 @@ treadRegion = Core.atlas.find("dark-stell-treads");
             tankMoveSound = Sounds.tankMoveSmall;
 
             weapons.add(new Weapon("dark-stell-weapon"){{
-                region = Core.atlas.find("dark-stell-weapon");
                 shootSound = Sounds.shootStell;
                 layerOffset = 0.0001f;
                 reload = 50f;
