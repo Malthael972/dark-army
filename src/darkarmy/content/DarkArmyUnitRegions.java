@@ -6,42 +6,36 @@ import arc.graphics.g2d.TextureRegion;
 import mindustry.Vars;
 import mindustry.game.EventType;
 import mindustry.type.UnitType;
-import darkarmy.content.DarkArmyUnits;
 
 public class DarkArmyUnitRegions {
 
     public static void load() {
-
+        // Wait until client loads all assets
         Events.on(EventType.ClientLoadEvent.class, e -> {
 
+            // Loop through all units in the game
             for(UnitType unit : Vars.content.units()) {
 
-                // Only touch your mod’s units
+                // Only assign your mod’s units (optional)
                 if(!unit.name.startsWith("dark-")) continue;
 
-                unit.region       = find(unit.name);
-                unit.shadowRegion = find(unit.name + "-shadow");
-                unit.cellRegion   = find(unit.name + "-cell");
-                unit.treadRegion  = find(unit.name + "-treads");
+                // Assign the main unit textures (vanilla fields)
+                unit.region       = find(unit.name);               // main sprite
+                unit.shadowRegion = find(unit.name + "-shadow");  // shadow
+                unit.cellRegion   = find(unit.name + "-cell");    // mech energy cell
+                unit.treadRegion  = find(unit.name + "-treads");  // treads/tracks
 
-                // Legs / mechs
-                unit.legRegion        = find(unit.name + "-leg");
-                unit.legShadowRegion = find(unit.name + "-leg-shadow");
-                unit.footRegion      = find(unit.name + "-foot");
-
-                // Blades / rotors
-                unit.bladeRegion = find(unit.name + "-blade");
-
-                // Weapons (same as vanilla)
-                unit.weapons.each(w ->
-                    w.region = find(w.name)
-                );
+                // Assign weapon textures
+                if(unit.weapons != null){
+                    unit.weapons.each(w -> w.region = find(w.name));
+                }
             }
         });
     }
 
+    // Helper method to find a TextureRegion by name
     private static TextureRegion find(String name){
         TextureRegion r = Core.atlas.find(name);
-        return r.found() ? r : Core.atlas.find("clear");
+        return r.found() ? r : Core.atlas.find("clear"); // fallback if not found
     }
 }
