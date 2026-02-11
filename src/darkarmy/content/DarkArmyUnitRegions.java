@@ -6,7 +6,7 @@ import arc.util.Log;
 
 import mindustry.game.EventType;
 
-public class DarkUnitRegions {
+public class DarkArmyUnitRegions {
 
     public static void load() {
 
