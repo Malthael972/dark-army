@@ -1,15 +1,11 @@
 package darkarmy.content;
 
 import arc.Core;
-import arc.graphics.g2d.TextureRegion;
-import mindustry.type.UnitType;
 import arc.Events;
-import arc.util.Log;
-
+import arc.graphics.g2d.TextureRegion;
+import mindustry.Vars;
 import mindustry.game.EventType;
-
-import darkarmy.content.DarkArmyUnits;
-
+import mindustry.type.UnitType;
 
 public class DarkArmyUnitRegions {
 
@@ -17,19 +13,34 @@ public class DarkArmyUnitRegions {
 
         Events.on(EventType.ClientLoadEvent.class, e -> {
 
-            DarkArmyUnits.darkStell.region =
-                Core.atlas.find("dark-stell");
+            for(UnitType unit : Vars.content.units()) {
 
-            DarkArmyUnits.darkStell.cellRegion =
-                Core.atlas.find("dark-stell-cell");
+                // Only touch your mod’s units
+                if(!unit.name.startsWith("dark-")) continue;
 
-            DarkArmyUnits.darkStell.treadRegion =
-                Core.atlas.find("dark-stell-treads");
+                unit.region       = find(unit.name);
+                unit.shadowRegion = find(unit.name + "-shadow");
+                unit.cellRegion   = find(unit.name + "-cell");
+                unit.treadRegion  = find(unit.name + "-treads");
 
-            // weapons
-            DarkArmyUnits.darkStell.weapons.each(w ->
-                w.region = Core.atlas.find(w.name)
-            );
+                // Legs / mechs
+                unit.legRegion        = find(unit.name + "-leg");
+                unit.legShadowRegion = find(unit.name + "-leg-shadow");
+                unit.footRegion      = find(unit.name + "-foot");
+
+                // Blades / rotors
+                unit.bladeRegion = find(unit.name + "-blade");
+
+                // Weapons (same as vanilla)
+                unit.weapons.each(w ->
+                    w.region = find(w.name)
+                );
+            }
         });
+    }
+
+    private static TextureRegion find(String name){
+        TextureRegion r = Core.atlas.find(name);
+        return r.found() ? r : Core.atlas.find("clear");
     }
 }
