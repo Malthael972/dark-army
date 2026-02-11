@@ -51,6 +51,9 @@ public class DarkArmyUnits {
     // tank units
     darkStell = new TankUnitType("dark-stell"){{
         constructor = UnitEntity::create;
+region = Core.atlas.find("dark-stell");
+cellRegion = Core.atlas.find("dark-stell-cell");
+treadRegion = Core.atlas.find("dark-stell-treads");
       
             hitSize = 12f;
             treadPullOffset = 3;
