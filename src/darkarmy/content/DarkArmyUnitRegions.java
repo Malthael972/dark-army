@@ -7,7 +7,9 @@ import arc.Events;
 import arc.util.Log;
 
 import mindustry.game.EventType;
- 
+
+import static darkarmy.content.DarkArmyUnits.*;
+
 
 public class DarkArmyUnitRegions {
 
