@@ -7,6 +7,7 @@ import mindustry.game.EventType;
 import darkarmy.content.DarkArmyUnits;
 import darkarmy.content.DarkArmyBlocks;
 import darkarmy.content.DarkArmyTechTree;
+import darkarmy.content.DarkArmyUnitRegions;
 
 
 public class DarkArmy extends Mod {
@@ -15,6 +16,8 @@ public void loadContent() {
     DarkArmyUnits.load();
     DarkArmyBlocks.load();
     DarkArmyTechTree.load();
+    DarkArmyUnitRegions.load();
+    
   
     
 }
