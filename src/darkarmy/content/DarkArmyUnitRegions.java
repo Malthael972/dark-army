@@ -6,6 +6,7 @@ import arc.graphics.g2d.TextureRegion;
 import mindustry.Vars;
 import mindustry.game.EventType;
 import mindustry.type.UnitType;
+import darkarmy.content.DarkArmyUnits;
 
 public class DarkArmyUnitRegions {
 
